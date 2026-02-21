@@ -55,3 +55,8 @@ Table agendamentos {
   data_conclusao timestamp
 
 }
+
+Ref: agendamentos.paciente_id > pacientes.id [delete: cascade]
+Ref: agendamentos.profissional_id > profissionais.id [delete: restrict]
+Ref: agendamentos.especialidade_id > especialidades.id [delete: restrict]
+Ref: profissionais.especialidade_id > especialidades.id [delete: restrict]
