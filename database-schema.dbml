@@ -1,5 +1,3 @@
-
-
 Table pacientes {
   id int [pk, increment]
   cpf varchar(14) [unique, not null]
@@ -9,8 +7,7 @@ Table pacientes {
   data_nascimento date
   senha_hash varchar(255) [not null]
   numero_carteirinha varchar(50) [unique]
-  created_at timestamp [default: `now()`]
-  updated_at timestamp [default: `now()`]
+
 }
 
 Table especialidades {
@@ -22,8 +19,7 @@ Table especialidades {
   instrucoes_preparo text
   duracao_media int
   ativo boolean [default: true]
-  created_at timestamp [default: `now()`]
-  updated_at timestamp [default: `now()`]
+
 }
 
 Table profissionais {
@@ -37,8 +33,7 @@ Table profissionais {
   unidade varchar(255) [not null]
   sala varchar(50)
   ativo boolean [default: true]
-  created_at timestamp [default: `now()`]
-  updated_at timestamp [default: `now()`]
+
 }
 
 Table agendamentos {
@@ -58,11 +53,5 @@ Table agendamentos {
   data_confirmacao timestamp
   data_cancelamento timestamp
   data_conclusao timestamp
-  created_at timestamp [default: `now()`]
-  updated_at timestamp [default: `now()`]
-}
 
-Ref: agendamentos.paciente_id > pacientes.id [delete: cascade]
-Ref: agendamentos.profissional_id > profissionais.id [delete: restrict]
-Ref: agendamentos.especialidade_id > especialidades.id [delete: restrict]
-Ref: profissionais.especialidade_id > especialidades.id [delete: restrict]
+}
